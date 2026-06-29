@@ -7,7 +7,7 @@ import CtaBand from "@/components/CtaBand";
 const BASE = "https://www.digitalhalloffame.com";
 
 export const metadata: Metadata = {
-  title: "Our Services | Digital Hall of Fame",
+  title: "Our Services",
   description:
     "Six battle-tested digital marketing services for NZ businesses. SEO, Google Ads, Web Development, Social Media, Video Production, AI Automation. One profit-first obsession.",
   alternates: { canonical: `${BASE}/our-services/` },

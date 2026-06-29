@@ -61,7 +61,7 @@ export const servicesData: Record<string, ServiceData> = {
   seo: {
     slug: "seo",
     meta: {
-      title: "Local SEO Services from $1,500/mo | Digital Hall of Fame",
+      title: "Local SEO Services from $1,500/mo",
       description: "Forensic SEO audits, high-intent keyword strategy, authority building, and Local SEO for NZ businesses. Transparent reporting tied to leads and revenue, not vanity rankings.",
     },
     eyebrow: "Search Engine Optimisation",
@@ -171,7 +171,7 @@ export const servicesData: Record<string, ServiceData> = {
   sem: {
     slug: "sem",
     meta: {
-      title: "Google Ads Management | Digital Hall of Fame",
+      title: "Google Ads Management",
       description: "High-intent Google Ads campaigns engineered to buy NZ customers at a profit. Forensic audits, conversion-focused landing pages, relentless A/B testing. Positive ROAS or we are not done.",
     },
     eyebrow: "Google Ads (SEM / PPC)",
@@ -280,7 +280,7 @@ export const servicesData: Record<string, ServiceData> = {
   "web-development": {
     slug: "web-development",
     meta: {
-      title: "Web Development NZ | Digital Hall of Fame",
+      title: "Web Development NZ",
       description: "Fast, mobile-perfect, SEO-ready websites on a fully managed monthly subscription. No upfront cost, no tech headaches — a conversion machine built and managed by us.",
     },
     eyebrow: "Web Development",
@@ -355,7 +355,7 @@ export const servicesData: Record<string, ServiceData> = {
   "social-media": {
     slug: "social-media",
     meta: {
-      title: "Social Media Advertising NZ | Digital Hall of Fame",
+      title: "Social Media Advertising NZ",
       description: "Precision paid social funnels on Facebook, Instagram, LinkedIn, and TikTok. Psychographic targeting, scroll-stopping creative, full-funnel strategy. ROI-obsessed, not follower-count-obsessed.",
     },
     eyebrow: "Social Media Advertising",
@@ -432,7 +432,7 @@ export const servicesData: Record<string, ServiceData> = {
   "video-production": {
     slug: "video-production",
     meta: {
-      title: "Video Production & Content Creation NZ | Digital Hall of Fame",
+      title: "Video Production & Content Creation NZ",
       description: "Strategy-first video production and content creation for NZ businesses. Brand films, ads, social content — built to stop the scroll, build trust, and convert viewers into customers.",
     },
     eyebrow: "Video Production & Creation",
@@ -509,7 +509,7 @@ export const servicesData: Record<string, ServiceData> = {
   "ai-consultancy": {
     slug: "ai-consultancy",
     meta: {
-      title: "AI Automation & Consultancy NZ | Digital Hall of Fame",
+      title: "AI Automation & Consultancy NZ",
       description: "Practical AI automation for NZ businesses. Workflow audit, custom AI solution design, done-for-you implementation, and team training. Reclaim hundreds of hours. Real efficiency, real competitive edge.",
     },
     eyebrow: "AI Automation & Consultancy",

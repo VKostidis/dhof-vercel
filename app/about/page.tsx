@@ -6,7 +6,7 @@ const BASE = "https://www.digitalhalloffame.com";
 const IMG = `${BASE}/wp-content/themes/digital-hall-of-fame/assets/img`;
 
 export const metadata: Metadata = {
-  title: "About | Digital Hall of Fame",
+  title: "About",
   description:
     "Digital Hall of Fame is a NZ digital consulting firm founded in 2015. Battle-tested since day one — real campaigns, real businesses, real results. Meet the founder.",
   alternates: { canonical: `${BASE}/about/` },

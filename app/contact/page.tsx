@@ -4,7 +4,7 @@ import CtaBand from "@/components/CtaBand";
 const BASE = "https://www.digitalhalloffame.com";
 
 export const metadata: Metadata = {
-  title: "Contact | Digital Hall of Fame",
+  title: "Contact",
   description:
     "Book your free 30-minute strategy call. We'll review your digital setup, tell you what we'd attack first, and be honest if we're not the right fit.",
   alternates: { canonical: `${BASE}/contact/` },
