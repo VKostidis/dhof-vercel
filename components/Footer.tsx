@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 const BASE = "https://www.digitalhalloffame.com";
 const IMG = `${BASE}/wp-content/themes/digital-hall-of-fame/assets/img`;
@@ -42,12 +41,11 @@ export default function Footer() {
           {/* Brand col */}
           <div className="flex flex-col gap-5">
             <Link href={`${BASE}/`} aria-label="Digital Hall of Fame — home" className="inline-block">
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src={`${IMG}/logo.webp`}
                 alt="Digital Hall of Fame"
-                width={160}
-                height={48}
-                className="h-[100px] w-auto"
+                style={{ height: 80, width: "auto", display: "block" }}
               />
             </Link>
             <p className="text-sm text-white/55 leading-relaxed max-w-[32ch]">
