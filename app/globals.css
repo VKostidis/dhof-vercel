@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+/* ── Brand tokens exposed to Tailwind v4 ─────────────────────────────────── */
+@theme {
+  --color-paper:      #FFFFFF;
+  --color-ink:        #0A0A0A;
+  --color-ink-soft:   #1F1F1F;
+  --color-off-white:  #F4F4EE;
+  --color-accent:     #FFE600;
+  --color-accent-dk:  #E6CF00;
+  --color-ink-mute:   #6B6B6B;
+  --color-line:       #E5E5E0;
+
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius-pill: 9999px;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+}
+
+/* ── Base reset ──────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  overflow-x: clip;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #FFFFFF;
+  color: #0A0A0A;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img, svg, video { max-width: 100%; height: auto; display: block; }
+
+/* ── Marquee animation ───────────────────────────────────────────────────── */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 28s linear infinite;
+}
+.group:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* ── Sparkle pulse ───────────────────────────────────────────────────────── */
+@keyframes sparkle-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.9) rotate(0deg); }
+  50%       { opacity: 0.85; transform: scale(1.05) rotate(45deg); }
+}
+.animate-sparkle { animation: sparkle-pulse 4s ease-in-out infinite; }
+
+/* ── Alert dot pulse ─────────────────────────────────────────────────────── */
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.6); }
+}
+.animate-dot-pulse { animation: dot-pulse 1.6s ease-in-out infinite; }
+
+/* ── FAQ details/summary ─────────────────────────────────────────────────── */
+details summary::-webkit-details-marker { display: none; }
+details summary { list-style: none; }
+
+/* ── Dark section link override ──────────────────────────────────────────── */
+.section-dark a:not(.btn) { color: #FFFFFF; }
+
+/* ── Hero grid overlay ───────────────────────────────────────────────────── */
+.hero-grid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 80px 80px;
+  background-position: center;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 80%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Scroll-snap for work grid ───────────────────────────────────────────── */
+.scroll-snap-x { scroll-snap-type: x mandatory; }
+.snap-start    { scroll-snap-align: start; }
+
+/* ── Fade hint right edge on work carousel ───────────────────────────────── */
+.fade-right::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 80px;
+  background: linear-gradient(to right, transparent, #F4F4EE);
+  pointer-events: none;
+}
+
+/* ── Logo small variant ──────────────────────────────────────────────────── */
+.logo-sm { max-height: 56px !important; }
+
+/* ── Hero ambient glow ───────────────────────────────────────────────────── */
+.hero-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 95%, rgba(255,230,0,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 50% 100%, rgba(255,100,200,0.10) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-sparkle,
+  .animate-dot-pulse { animation: none !important; }
+}
