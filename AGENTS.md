@@ -1,6 +1,6 @@
 # Digital Hall of Fame — Vercel / Next.js Project
 
-This is the **Next.js 15 + Tailwind v4** frontend for digitalhalloffame.com, deployed on Vercel.
+This is the **Next.js 16 + Tailwind v4** frontend for digitalhalloffame.com, deployed on Vercel.
 It lives alongside the WordPress build (`../wp-content/`) and is the path to a full headless or standalone migration.
 
 ## Quick facts
@@ -38,14 +38,49 @@ It lives alongside the WordPress build (`../wp-content/`) and is the path to a f
 <img src="..." alt="..." style={{ height: 100, width: 'auto', display: 'block' }} />
 ```
 
+## Pages built (as of 2026-06-30)
+
+| Route | File | Notes |
+|---|---|---|
+| `/` | `app/page.tsx` | Homepage — all sections, JSON-LD schema |
+| `/about` | `app/about/page.tsx` | Full about page |
+| `/contact` | `app/contact/page.tsx` | Dark hero + 2-col form card |
+| `/our-services` | `app/our-services/page.tsx` | Services hub |
+| `/our-services/[slug]` | `app/our-services/[slug]/page.tsx` | Dynamic — 6 slugs via generateStaticParams |
+
+**Total: 10 static routes.** Industry pages, blog, case studies, 404 pending.
+
+### Pending pages
+
+- `/industries-we-serve` — static hub listing all 14 industries
+- `/[industry]` — 14 hub pages (e.g. `/mechanic-marketing/`)
+- `/[industry]/seo` — 14 SEO sub-pages
+- `/[industry]/google-ads` — 14 Google Ads sub-pages
+- `/blog` — live WP /blog/ returns 404; build "coming soon"
+- `/case-studies` — basic hub
+- `app/not-found.tsx` — 404 page
+
+**Next step:** Create `lib/industry-data.ts` (types + all 14 industries), then `app/[industry]/page.tsx`, `app/[industry]/seo/page.tsx`, `app/[industry]/google-ads/page.tsx`. Mechanic content is exact (scraped in `.firecrawl/mechanic-*.md`). Other 13 adapt from same structure.
+
+### Key data files
+
+- `lib/services-data.ts` — all 6 service pages' typed content (SEO+SEM have pricing; others have proof section)
+
 ## Project structure
 
 ```
-vercel-dhof/
+mockup/
 ├── app/
-│   ├── globals.css       ← brand tokens (@theme), animations, base reset
-│   ├── layout.tsx        ← Inter font, site metadata, Header + Footer wrappers
-│   └── page.tsx          ← homepage: all sections + JSON-LD schema
+│   ├── globals.css             ← brand tokens (@theme), animations, base reset
+│   ├── layout.tsx              ← Inter font, site metadata, Header + Footer wrappers
+│   ├── page.tsx                ← homepage
+│   ├── about/page.tsx
+│   ├── contact/page.tsx
+│   └── our-services/
+│       ├── page.tsx
+│       └── [slug]/page.tsx
+├── lib/
+│   └── services-data.ts        ← all 6 service pages' content as typed objects
 ├── components/
 │   ├── Header.tsx        ← 'use client', sticky scroll state, services dropdown, mobile drawer
 │   ├── Footer.tsx        ← 4-col dark footer, social icons, legal links
@@ -93,7 +128,11 @@ https://www.digitalhalloffame.com/wp-content/themes/digital-hall-of-fame/assets/
 ```
 Logo: `.../logo.webp` — Client logos: `.../clients/[name].[ext]`
 
-All links point to `https://www.digitalhalloffame.com/[path]` — the Next.js site has no internal routing (homepage only for now).
+All links to WP pages use `const BASE = "https://www.digitalhalloffame.com"` defined at top of each page file.
+Internal Next.js routes (`/about`, `/contact`, `/our-services`, `/our-services/[slug]`) use `<Link href="...">`.
+
+### Page title rule
+The layout template in `layout.tsx` adds `| Digital Hall of Fame` via `title.template`. Page-level metadata must NOT include "Digital Hall of Fame" in the title string — it will double-append.
 
 ## Deploy workflow
 
